@@ -1,4 +1,4 @@
 # Angela Milena Ortiz Torres
-- Carrera: Arquitectura
-- Semestre: Segundo semestre, Maestría Humanidades Digitales
+- Carrera: Maestría Humanidades Digitales
+- Semestre: Segundo semestre 
 - Usuario de Github: milenaor 
