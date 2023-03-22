@@ -13,7 +13,7 @@ titulos = []
 anios = []
 generos = []
 
-for libro in libro1:
+for libro in libros:
     libro_info = libro.split(";")
     autores.append(libro.split(";")[0]) #ojo cambiar acá todo el resto
     titulos.append(libro_info[1])
@@ -41,7 +41,7 @@ print (libros)
 #queesesto
 print("\nTítulos actualizados:", titulos)
 
-for i in range(len(libro1)):
+for i in range(len(libros)):
     print("Libro ", i+1, ":")
     print("Autor:", autores[i])
     print("Título:", titulos[i])
@@ -55,7 +55,7 @@ libros_nada = []
 for libro in libros: 
     items_libro = libro.split(";")
     items_libro.pop()
-    libro_nuevo = f"{items_libro [0]}; {items_libro[1]}; {items_libro [2]})
+    libro_nuevo = f"{items_libro [0]}; {items_libro[1]}; {items_libro [2]}"
     libros_nada.append(libro_nuevo)
 
 libros = libros_nada
@@ -84,7 +84,7 @@ print(f"La fecha promedio de los libros de mi catálogo es: {fecha_promedio}")
 
 
 titulos = [libro.split(";")[0] for libro in libros]
-caracteres_titulos = [len(titulo) for titulos in titulos]
+caracteres_titulos = [len(titulo) for titulo in titulos]
 promedio = sum(caracteres_titulos) / len(caracteres_titulos)
 
 #lista de comprensión 
