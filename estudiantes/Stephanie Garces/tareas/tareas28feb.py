@@ -53,7 +53,9 @@ else:
     print("No se encontraron coincidencias para el género de", género)
 
 #libros por gneéro en listado 
-
+historia = []
+filosofia = []
+otras_categorias = []
 for libro in libros:
     categoria = libro.split("; ")[-1].lower() # obtenemos la categoría del libro y convertimos a minúsculas
     if "historia" in categoria:
@@ -92,11 +94,11 @@ for libro in libros:
     genero = datos_libro[2].split(", ")[1]
     
     if autor == autor_buscado and fecha == año_buscado:
-        libros_encontrados.append((titulo, fecha, genero))
+        resultado.append((titulo, fecha, genero))
         
-if libros_encontrados:
+if resultado:
     print(f"Libros de {autor_buscado} publicados en {año_buscado}:")
-    for libro in libros_encontrados:
+    for libro in resultado:
         print(f"- {libro[0]} ({libro[1]}), {libro[2]}")
 else:
     print("No hay coincidencias.")
