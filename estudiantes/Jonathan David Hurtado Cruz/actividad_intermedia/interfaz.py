@@ -1,7 +1,7 @@
-from busqueda_2_intento import busqueda 
-from busqueda_2_intento import buscatitulo
-from busqueda_2_intento import formateador
+from busqueda_2_intento import *
 from biblioteca import biblioteca
+
+
 
 def menu():
     print("1. Buscar por título")
@@ -12,6 +12,7 @@ def menu():
     opcion = input("Ingrese una opción: ")
     return opcion
 
+#########IMPLEMENTAR MENU DE SALIDA???############
 
 def main():
     opcion = menu()
@@ -19,35 +20,36 @@ def main():
         if opcion == "1":
             titulo = input("Ingrese el título: ")
             biblio= biblioteca()
-            buscatitulo("article-journal", titulo, biblio)
+            tipoo= input(("Ingrese el tipo de texto: "))
+            rta=buscatitulo(tipoo, titulo, biblio)
+            if rta==[]:
+                print('\n\n No hay titulos que correspondan con la busqueda')
+            print(formateador(rta))
+            #break
         elif opcion == "2":
-            autor = input("Ingrese el autor: ")
+            input_autor = input("Ingrese el autor: ")
             tipo = input("Ingrese el tipo de texto: ")
-            palabra = input("Ingrese la palabra clave para buscar: ")
-            try:
-                busqueda(palabra, autor, tipo) 
-                
-            except TypeError:
-                print("No se encontraron resultados")
+            resp=(busqueda(input_autor, 'author', tipo))
+            if resp== []:
+                print('\n\n No hay autores que correspondan con la busqueda')
+            print(formateador(resp))
+
         elif opcion == "3":
+            fecha= input("ingrese la fecha que desea buscar: ")
             tip = input("Ingrese el tipo de texto que desea buscar: ")
             biblio= biblioteca()
-            fecha= input("ingrese la fecha que sea buscar: ")
-            autorr = input("Ingrese el autor: ")
-            try:
-                busqueda(fecha, autorr, tip) 
-            except TypeError:
-                print("No se encontraron resultados")
-
+            respues= (busqueda(fecha, "issued", tip))
+            if respues== []:
+                print('\n\n No hay elementos que correspondan con la busqueda')
+            print(formateador(respues))
+           
         elif opcion == "4":
             palabra_clave = input("Ingrese la palabra clave que desea buscar: ")
             tipp = input("Ingrese el tipo de texto que desea buscar: ")
-            autorrr = input("Ingrese el autor que desea buscar: ")
-            try:
-                busqueda(palabra_clave, autorrr, tipp) 
-            except TypeError:
-                print("No se encontraron resultados")
-            
+            respuesta= (busqueda(palabra_clave, "title", tipp))
+            if respuesta == []:
+                print('\n\n No hay elementos que correspondan con la busqueda')
+            print(formateador(respuesta))
         else:
             print("opción inválida")
         opcion = menu()
@@ -55,3 +57,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
